@@ -1,0 +1,128 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300,300italic,400,700,700italic);
+// @import "compass/css3";
+
+/**
+ * Base Elements
+ */
+
+* {
+   margin: 0;
+   padding: 0;
+ }
+
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+span,
+a,
+button {
+  font-family: 'Audiowide', 'Rancho', 'Lato', 'Open Sans', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+h1{
+  font-size: 250%;
+}
+
+p{
+  font-size: 80%;
+  text-align: center;
+  color:	#0e253e; 
+}
+
+header{
+  text-align: center;
+  padding: 20px 10px;
+  font-family: 'Audiowide';
+  font-stretch: expanded;
+  font-size: 30px;
+  text-shadow: 2px 2px 3px #E6E6FA;
+}
+
+body {
+  background-image: url("images/BackgroundASMR.png");
+  background-size: cover;
+  background-position: center; 
+}
+
+video{
+  margin: auto;
+  border-radius: 25px;
+  border: 6px solid #0B122A;
+  box-shadow: 5px 5px 10px #E6E6FA;
+}
+
+
+/// Mixin to place items on a circle
+/// @author Hugo Giraudel
+/// @author Ana Tudor
+/// @param {Integer} $item-count - Number of items on the circle
+/// @param {Length} $circle-size - Large circle size
+/// @param {Length} $item-size - Single item size
+@mixin on-circle($item-count, $circle-size, $item-size) {  
+  position: relative;
+  width:  $circle-size;
+  height: $circle-size;
+  border-radius: 50%;
+  padding: 0; 
+  list-style: none;
+  
+  > * {
+    display: block;
+    position: absolute;
+    top:  50%; 
+    left: 50%;
+    margin: -($item-size / 2);
+    width:  $item-size;
+    height: $item-size;
+    $item-count-fin: $item-count - 1;
+
+    $angle: (360 / $item-count-fin);
+    $rot: 0;
+    
+
+    @for $i from 1 through $item-count-fin {
+      &:nth-of-type(#{$i}) {
+        transform: rotate($rot * 1deg) translate($circle-size / 2) rotate($rot * -1deg);
+      }
+
+      $rot: $rot + $angle;
+    }
+  }
+}
+
+.circle-container {
+  @include on-circle($item-count: 7, $circle-size: 40em, $item-size: 6em); 
+  margin: 5em auto 0;
+  border: solid 5px #0e253e;
+
+  video {
+    margin: auto;
+    border-radius: 25px;
+    border: 6px solid #0B122A;
+    box-shadow: 5px 5px 10px #E6E6FA;
+    display: block; 
+    width:  50px;
+    height: 100px;
+
+    &:hover {
+      filter: grayscale(0);
+    }
+  }
+
+  img { 
+    display: block; 
+    max-width: 100%; 
+    border-radius: 50%;
+    filter: grayscale(100%);
+    border: solid 5px #0B122A;
+    transition: .15s;
+     
+    &:hover {
+      filter: grayscale(0);
+    }
+  }
+}
