@@ -8,5 +8,6 @@ export default class Router extends EmberRouter {
 
 Router.map(function () {
   this.route('videos');
+  this.route('pick', { path: '/pick-your-video' });
 });
 

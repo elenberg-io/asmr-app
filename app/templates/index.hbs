@@ -7,17 +7,43 @@
     <source src="assets/videos/video1.mp4" type="video/mp4" />
 </video>
 
+{{!-- <LinkTo @route="about" class="button">About Us</LinkTo> --}}
+
+<div class="carousel">
+<BsCarousel as |vid|>
+    <vid.slide>
+        <video id="my-player" width="210" height="390 " class="video-js vjs-theme-fantasy" controls preload="auto"
+            playsinline>
+            <source src="assets/videos/video1.mp4" type="video/mp4" />
+        </video>
+        <div class="carousel-caption">
+            
+        </div>
+    </vid.slide>
+    <vid.slide>
+        <video id="my-player" width="210" height="390 " class="video-js vjs-theme-fantasy" controls preload="auto"
+            playsinline>
+            <source src="assets/videos/video1.mp4" type="video/mp4" />
+        </video>
+        <div class="carousel-caption">
+            
+        </div>
+    </vid.slide>
+</BsCarousel>
+</div>
+
 
 <ul class='circle-container'>
-    <li><img src='http://lorempixel.com/100/100/nature'></li>
-    <li><img src='http://lorempixel.com/100/100/abstract'></li>
-    <li><img src='http://lorempixel.com/100/100/cats'></li>
-    <li><img src='http://lorempixel.com/100/100/food'></li>
-    <li><img src='http://lorempixel.com/100/100/animals'></li>
-    <li><img src='http://lorempixel.com/100/100/business'></li>
+    <li><img src='assets/images/background2.jpg'></li>
+    <li><img src='assets/images/background2.jpg'></li>
+    <li><img src='assets/images/background2.jpg'></li>
+    <li><img src='assets/images/background2.jpg'></li>
+    <li><img src='assets/images/background2.jpg'></li>
+    <li><img src='assets/images/background2.jpg'></li>
     <li><video id="central-player" width="120" height="120 " class="video-js vjs-theme-fantasy" controls preload="auto"
             playsinline>
             <source src="assets/videos/video1.mp4" type="video/mp4" />
         </video>
     </li>
 </ul>
+

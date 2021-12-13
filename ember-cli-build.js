@@ -7,6 +7,10 @@ module.exports = function (defaults) {
     // Add options here
     sassOptions: {
       extension: 'scss'
+    },
+    'ember-bootstrap': {
+      importBootstrapCSS: false,
+      blacklist: ['bs-popover', 'bs-accordion']
     }
   });
 

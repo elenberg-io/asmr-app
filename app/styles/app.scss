@@ -1,4 +1,6 @@
+@use 'sass:math';
 @import url(https://fonts.googleapis.com/css?family=Lato:300,300italic,400,700,700italic);
+
 // @import "compass/css3";
 
 /**
@@ -75,18 +77,18 @@ video{
     position: absolute;
     top:  50%; 
     left: 50%;
-    margin: -($item-size / 2);
+    margin: - math.div($item-size, 2);
     width:  $item-size;
     height: $item-size;
     $item-count-fin: $item-count - 1;
 
-    $angle: (360 / $item-count-fin);
+    $angle: math.div(360, $item-count-fin);
     $rot: 0;
     
 
     @for $i from 1 through $item-count-fin {
       &:nth-of-type(#{$i}) {
-        transform: rotate($rot * 1deg) translate($circle-size / 2) rotate($rot * -1deg);
+        transform: rotate($rot * 1deg) translate(math.div($circle-size, 2)) rotate($rot * -1deg);
       }
 
       $rot: $rot + $angle;
@@ -97,6 +99,7 @@ video{
 .circle-container {
   @include on-circle($item-count: 7, $circle-size: 40em, $item-size: 6em); 
   margin: 5em auto 0;
+  padding: 120px 120px;
   border: solid 5px #0e253e;
 
   video {
@@ -126,3 +129,12 @@ video{
     }
   }
 }
+
+.carousel {
+  text-align: center;
+  margin: 10px auto;
+  padding: 120px 120px;
+  height: 200px;
+}
+
+@import "ember-bootstrap/bootstrap";
